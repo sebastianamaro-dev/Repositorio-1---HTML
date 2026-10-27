@@ -1,0 +1,662 @@
+<!DOCTYPE html>
+<html lang="es" class="h-full">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lecturas Semana 1: Victimología | Magíster en Intervenciones Psicojurídicas UVM</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome 6 CDN -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <!-- Google Fonts: Plus Jakarta Sans -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --font-scale: 1;
+        }
+
+        html {
+            font-size: calc(16.5px * var(--font-scale));
+        }
+
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background: radial-gradient(circle at top right, #fcfaff, #ece7f6);
+            background-attachment: fixed;
+            min-height: 100vh;
+            color: #1e1b2e;
+        }
+
+        /* Accesibilidad WCAG 2.1 AA: Focus visible estricto */
+        *:focus-visible {
+            outline: 3px solid #7c3aed !important;
+            outline-offset: 3px !important;
+        }
+
+        .skip-link {
+            position: absolute;
+            top: -100px;
+            left: 1rem;
+            background: #1e1b2e;
+            color: #ffffff;
+            padding: 0.75rem 1.25rem;
+            z-index: 1000;
+            text-decoration: none;
+            font-weight: 700;
+            border-radius: 0 0 0.75rem 0.75rem;
+            transition: top 0.2s ease;
+        }
+        .skip-link:focus {
+            top: 0;
+        }
+
+        /* Modo Alto Contraste */
+        body.high-contrast {
+            background: #000000 !important;
+            color: #ffffff !important;
+        }
+        body.high-contrast .glass-card,
+        body.high-contrast aside,
+        body.high-contrast .info-box {
+            background: #000000 !important;
+            border: 2px solid #ffffff !important;
+            color: #ffffff !important;
+            box-shadow: none !important;
+        }
+        body.high-contrast button,
+        body.high-contrast a {
+            border: 1px solid #ffffff !important;
+            background-color: #000000 !important;
+            color: #ffffff !important;
+        }
+
+        /* Modo Oscuro Psicojurídico */
+        body.dark-mode {
+            background: #0d0b17 !important;
+            color: #f5f3ff !important;
+        }
+        body.dark-mode .glass-card,
+        body.dark-mode aside,
+        body.dark-mode .info-box {
+            background: #191428 !important;
+            border-color: #2e264a !important;
+            color: #f5f3ff !important;
+        }
+        body.dark-mode h1, body.dark-mode h2, body.dark-mode h3, body.dark-mode h4 {
+            color: #ffffff !important;
+        }
+        body.dark-mode p, body.dark-mode span, body.dark-mode li {
+            color: #d1cbe8 !important;
+        }
+
+        body.reduce-motion * {
+            animation: none !important;
+            transition: none !important;
+        }
+
+        .glass-card {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.9);
+        }
+
+        /* Columnas de revista para síntesis analítica */
+        .editorial-columns {
+            column-count: 1;
+            column-gap: 2rem;
+            text-align: justify;
+        }
+        @media (min-width: 768px) {
+            .editorial-columns {
+                column-count: 2;
+            }
+        }
+
+        ::-webkit-scrollbar {
+            width: 6px;
+            height: 6px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #f1ecf9;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #7c3aed;
+            border-radius: 999px;
+        }
+    </style>
+</head>
+<body class="py-6 px-3 sm:px-6 flex flex-col justify-between min-h-full">
+
+    <a href="#main-content" class="skip-link">Saltar al contenido principal</a>
+
+    <!-- Barra de Accesibilidad y Control DUA -->
+    <div class="max-w-6xl mx-auto mb-6 flex flex-wrap justify-between items-center gap-3 bg-[#19132b] text-white p-3.5 rounded-2xl shadow-md text-xs w-full" role="region" aria-label="Herramientas de accesibilidad y lectura">
+        <div class="flex items-center gap-2 font-bold uppercase tracking-wider text-[11px] text-purple-400">
+            <i class="fas fa-universal-access text-sm" aria-hidden="true"></i>
+            <span>Accesibilidad & DUA • UVM Online</span>
+        </div>
+        <div class="flex flex-wrap items-center gap-2">
+            <button type="button" onclick="toggleHighContrast()" class="bg-[#261d40] hover:bg-[#342757] text-white px-3 py-1.5 rounded-xl font-semibold transition flex items-center gap-1.5 cursor-pointer">
+                <i class="fas fa-circle-half-stroke" aria-hidden="true"></i> Alto Contraste
+            </button>
+            <button type="button" onclick="toggleDarkMode()" class="bg-[#261d40] hover:bg-[#342757] text-white px-3 py-1.5 rounded-xl font-semibold transition flex items-center gap-1.5 cursor-pointer">
+                <i class="fas fa-moon" aria-hidden="true"></i> Modo Oscuro
+            </button>
+            <button type="button" onclick="adjustFontSize(0.1)" aria-label="Aumentar tamaño de texto" class="bg-[#261d40] hover:bg-[#342757] text-white px-2.5 py-1.5 rounded-xl font-bold transition cursor-pointer">
+                A+
+            </button>
+            <button type="button" onclick="adjustFontSize(-0.1)" aria-label="Disminuir tamaño de texto" class="bg-[#261d40] hover:bg-[#342757] text-white px-2.5 py-1.5 rounded-xl font-bold transition cursor-pointer">
+                A-
+            </button>
+            <button type="button" onclick="toggleReduceMotion()" class="bg-[#261d40] hover:bg-[#342757] text-white px-3 py-1.5 rounded-xl font-semibold transition flex items-center gap-1.5 cursor-pointer">
+                <i class="fas fa-film" aria-hidden="true"></i> Sin Animación
+            </button>
+        </div>
+    </div>
+
+    <!-- Región en vivo para lectores de pantalla -->
+    <div id="sr-announcer" class="sr-only" aria-live="polite" aria-atomic="true"></div>
+
+    <div class="max-w-6xl mx-auto w-full">
+
+        <!-- Insignia del Magíster y Módulo -->
+        <div class="flex justify-center mb-5 text-center">
+            <div class="bg-[#1f1738] text-white px-6 py-2 rounded-full text-[11px] font-extrabold tracking-[0.18em] uppercase flex items-center justify-center gap-3 shadow-md border border-purple-400/30 max-w-full">
+                <i class="fas fa-scale-balanced text-purple-400 shrink-0" aria-hidden="true"></i>
+                <span class="leading-normal">Magíster en Intervenciones Psicojurídicas • Victimología (MGIP 7011)</span>
+            </div>
+        </div>
+
+        <!-- Encabezado Principal de las Lecturas -->
+        <header class="text-center mb-8">
+            <span class="text-xs font-extrabold uppercase text-purple-800 tracking-[0.18em] block mb-2">Semana 1 • Bibliografía Obligatoria y Complementaria</span>
+            <h1 class="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight mb-3">
+                Lecturas de la Semana: <span class="text-purple-700">Victimología, Políticas y Polivictimización</span>
+            </h1>
+            <p class="text-slate-600 text-xs sm:text-sm font-medium max-w-3xl mx-auto leading-relaxed">
+                Explore las investigaciones y documentos oficiales asignados para la primera semana del curso. Revise la reseña analítica, escuche su síntesis con el lector asistido y acceda directamente al documento completo mediante los enlaces oficiales.
+            </p>
+        </header>
+
+        <div class="grid grid-cols-1 md:grid-cols-12 gap-6 lg:gap-8 items-start mb-10">
+
+            <!-- Menú Lateral Izquierdo Fijo/Sticky -->
+            <aside class="md:col-span-4 lg:col-span-4 bg-white/90 backdrop-blur rounded-3xl p-4 sm:p-5 border border-purple-100 shadow-sm md:sticky md:top-4 z-20 max-h-[calc(100vh-2rem)] overflow-y-auto" role="navigation" aria-label="Menú de lecturas de semana 1">
+                <div class="pb-3 mb-3 border-b border-purple-100 flex items-center justify-between">
+                    <span class="text-xs font-black uppercase tracking-wider text-purple-900 flex items-center gap-2">
+                        <i class="fas fa-book-open-reader text-purple-600"></i> Lecturas Semana 1
+                    </span>
+                    <span class="text-[11px] font-bold text-purple-700 bg-purple-50 px-2.5 py-0.5 rounded-full">4 Textos</span>
+                </div>
+                
+                <nav class="flex flex-col gap-2.5" role="tablist">
+                    <!-- Botón Lectura 1 -->
+                    <button type="button" role="tab" id="tab-btn-1" aria-selected="true" aria-controls="tab-panel-1" onclick="switchTab(1)" class="tab-btn text-left p-3 rounded-2xl font-extrabold text-xs bg-purple-700 text-white shadow-md transition flex items-start gap-2.5 cursor-pointer">
+                        <i class="fas fa-chart-line text-sm mt-0.5 shrink-0" aria-hidden="true"></i>
+                        <div class="flex flex-col">
+                            <span class="leading-tight">Reyes-Martínez (2021)</span>
+                            <span class="text-[10px] font-normal opacity-90 mt-0.5">Victimización, miedo al crimen y bienestar</span>
+                        </div>
+                    </button>
+
+                    <!-- Botón Lectura 2 -->
+                    <button type="button" role="tab" id="tab-btn-2" aria-selected="false" aria-controls="tab-panel-2" onclick="switchTab(2)" class="tab-btn text-left p-3 rounded-2xl font-bold text-xs bg-white text-slate-700 hover:bg-purple-50 transition flex items-start gap-2.5 cursor-pointer border border-purple-100">
+                        <i class="fas fa-landmark-flag text-sm text-purple-600 mt-0.5 shrink-0" aria-hidden="true"></i>
+                        <div class="flex flex-col">
+                            <span class="leading-tight">Subsecretaría Prevención del Delito (2021)</span>
+                            <span class="text-[10px] font-normal text-slate-500 mt-0.5">Política Nacional de Víctimas de Delito</span>
+                        </div>
+                    </button>
+
+                    <!-- Botón Lectura 3 -->
+                    <button type="button" role="tab" id="tab-btn-3" aria-selected="false" aria-controls="tab-panel-3" onclick="switchTab(3)" class="tab-btn text-left p-3 rounded-2xl font-bold text-xs bg-white text-slate-700 hover:bg-purple-50 transition flex items-start gap-2.5 cursor-pointer border border-purple-100">
+                        <i class="fas fa-shield-halved text-sm text-purple-600 mt-0.5 shrink-0" aria-hidden="true"></i>
+                        <div class="flex flex-col">
+                            <span class="leading-tight">UNICEF (2021)</span>
+                            <span class="text-[10px] font-normal text-slate-500 mt-0.5">Violencia contra niñez y adolescencia en Chile</span>
+                        </div>
+                    </button>
+
+                    <!-- Botón Lectura 4 -->
+                    <button type="button" role="tab" id="tab-btn-4" aria-selected="false" aria-controls="tab-panel-4" onclick="switchTab(4)" class="tab-btn text-left p-3 rounded-2xl font-bold text-xs bg-white text-slate-700 hover:bg-purple-50 transition flex items-start gap-2.5 cursor-pointer border border-purple-100">
+                        <i class="fas fa-person-breastfeeding text-sm text-purple-600 mt-0.5 shrink-0" aria-hidden="true"></i>
+                        <div class="flex flex-col">
+                            <span class="leading-tight">Brassard et al. (2020)</span>
+                            <span class="text-[10px] font-normal text-slate-500 mt-0.5">Polivictimización infantil y violencia de pareja</span>
+                        </div>
+                    </button>
+                </nav>
+
+                <!-- Orientación de Estudio -->
+                <div class="mt-5 pt-4 border-t border-purple-100 space-y-2">
+                    <span class="text-[11px] font-extrabold uppercase tracking-wider text-slate-400 block">Vinculación de Aprendizaje:</span>
+                    <div class="p-3 bg-purple-50/70 rounded-2xl border border-purple-100 text-xs text-purple-950 font-medium leading-relaxed">
+                        <p class="font-bold flex items-center gap-1.5 mb-1 text-[11.5px]">
+                            <i class="fas fa-bullseye text-purple-700"></i> RA1 & RA2 del Módulo
+                        </p>
+                        <p class="text-[11px] text-slate-600">
+                            Estos textos fundamentan el marco conceptual del diagnóstico inicial y el Hito Formativo 1: análisis de victimización en distintas etapas del ciclo vital con enfoque de género y derechos.
+                        </p>
+                    </div>
+                </div>
+            </aside>
+
+            <!-- Área de Estudio / Main Content -->
+            <main id="main-content" tabindex="-1" class="md:col-span-8 lg:col-span-8 outline-none">
+
+                <!-- PANEL 1: Reyes-Martínez (2021) -->
+                <section id="tab-panel-1" role="tabpanel" aria-labelledby="tab-btn-1" class="glass-card rounded-3xl p-6 sm:p-8 shadow-sm space-y-6">
+                    
+                    <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 pb-4 border-b border-purple-100">
+                        <div class="space-y-1">
+                            <span class="bg-purple-100 text-purple-900 px-3 py-1 rounded-full text-[11px] font-extrabold uppercase tracking-wider block w-fit">
+                                Artículo Científico • América Latina
+                            </span>
+                            <h2 class="text-xl sm:text-2xl font-extrabold text-slate-900 leading-tight">
+                                Victimización y miedo al crimen en Latinoamérica: ¿cómo se relacionan con el bienestar subjetivo?
+                            </h2>
+                            <p class="text-xs text-purple-900 font-semibold">
+                                Reyes-Martínez, J. (2021). <em>Revista Intervención</em>, 11(1), 51-76.
+                            </p>
+                        </div>
+                        
+                        <!-- Acciones: Descarga Oficial y Escuchar -->
+                        <div class="flex flex-wrap items-center gap-2.5 shrink-0 w-full sm:w-auto">
+                            <a href="https://doi.org/10.53689/int.v11i1.111" target="_blank" rel="noopener noreferrer" class="px-4 py-2.5 rounded-xl text-xs sm:text-[13px] font-extrabold text-white bg-purple-700 hover:bg-purple-800 shadow-md transition flex items-center gap-2 cursor-pointer border border-purple-800">
+                                <i class="fas fa-arrow-up-right-from-square text-xs" aria-hidden="true"></i> Abrir / Descargar (DOI)
+                            </a>
+                            <button type="button" id="tts-btn-1" onclick="speakReview(1)" class="px-4 py-2.5 rounded-xl text-xs sm:text-[13px] font-bold text-purple-950 bg-purple-200 hover:bg-purple-300 border border-purple-300 shadow-xs transition flex items-center gap-2 cursor-pointer">
+                                <i class="fas fa-volume-high text-purple-800" aria-hidden="true"></i> <span>Escuchar Reseña</span>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Reseña Analítica en Columnas Editoriales -->
+                    <div class="space-y-3">
+                        <div class="flex items-center gap-2 text-xs font-black uppercase tracking-wider text-purple-900 border-b border-purple-100 pb-2">
+                            <i class="fas fa-newspaper text-purple-600"></i> Reseña Analítica de la Lectura
+                        </div>
+                        <div id="review-text-1" class="editorial-columns text-xs sm:text-sm text-slate-700 leading-relaxed font-medium space-y-3">
+                            <p>
+                                El estudio de Reyes-Martínez (2021) examina la relación entre haber sido víctima directa de un delito, el temor al delito y los niveles de bienestar subjetivo en poblaciones latinoamericanas. La investigación demuestra que la victimización no sólo genera consecuencias directas e inmediatas (patrimoniales o corporales), sino que detona un deterioro sostenido en la satisfacción con la vida y la salud mental autopercibida.
+                            </p>
+                            <p>
+                                Uno de los aportes centrales para la victimología radica en distinguir la victimización fáctica del miedo al crimen. El temor opera como una forma de victimización indirecta o difusa que restringe la autonomía ciudadana, altera hábitos cotidianos y debilita el tejido social. El autor enfatiza que las intervenciones psicojurídicas y las políticas de seguridad deben considerar el bienestar subjetivo como un indicador clave de daño, superando las mediciones meramente estadísticas de denuncias policiales.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Claves Psicojurídicas -->
+                    <div class="p-4 bg-purple-50/60 rounded-2xl border border-purple-100 space-y-2 info-box">
+                        <strong class="text-xs uppercase tracking-wider text-purple-950 block font-bold flex items-center gap-1.5">
+                            <i class="fas fa-key text-purple-700"></i> Ejes Conceptuales para la Práctica Forense:
+                        </strong>
+                        <ul class="text-xs text-slate-700 space-y-1.5 list-disc pl-4 font-medium">
+                            <li><strong>Daño extendido:</strong> La afectación victimológica trasciende el daño material; impacta el bienestar psicológico y la confianza interpersonal.</li>
+                            <li><strong>Miedo al crimen como modulador:</strong> El temor sostenido genera respuestas adaptativas disfuncionales y aislamiento psicosocial.</li>
+                            <li><strong>Evaluación pericial del perjuicio:</strong> Aporta sustento teórico para fundamentar el daño inmaterial y la alteración vital en peritajes forenses.</li>
+                        </ul>
+                    </div>
+
+                    <div class="flex justify-end pt-2">
+                        <button type="button" onclick="switchTab(2)" class="px-5 py-2.5 rounded-xl text-xs sm:text-sm font-bold text-white bg-purple-700 hover:bg-purple-800 shadow-md transition flex items-center gap-2 cursor-pointer">
+                            Siguiente: Política Nacional de Víctimas <i class="fas fa-arrow-right"></i>
+                        </button>
+                    </div>
+                </section>
+
+                <!-- PANEL 2: Subsecretaría de Prevención del Delito (2021) -->
+                <section id="tab-panel-2" role="tabpanel" aria-labelledby="tab-btn-2" class="glass-card rounded-3xl p-6 sm:p-8 shadow-sm space-y-6 hidden">
+                    
+                    <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 pb-4 border-b border-purple-100">
+                        <div class="space-y-1">
+                            <span class="bg-amber-100 text-amber-900 px-3 py-1 rounded-full text-[11px] font-extrabold uppercase tracking-wider block w-fit">
+                                Documento Oficial • Política Pública de Chile
+                            </span>
+                            <h2 class="text-xl sm:text-2xl font-extrabold text-slate-900 leading-tight">
+                                Política Nacional de Víctimas de Delito: Apoyo a Víctimas
+                            </h2>
+                            <p class="text-xs text-purple-900 font-semibold">
+                                Subsecretaría de Prevención del Delito (2021). Gobierno de Chile.
+                            </p>
+                        </div>
+                        
+                        <!-- Acciones: Descarga Oficial y Escuchar -->
+                        <div class="flex flex-wrap items-center gap-2.5 shrink-0 w-full sm:w-auto">
+                            <a href="https://www.apoyovictimas.cl/seguridadpublica/wp-content/uploads/2021/04/Politica-Nacional-de-Victimas.pdf" target="_blank" rel="noopener noreferrer" class="px-4 py-2.5 rounded-xl text-xs sm:text-[13px] font-extrabold text-white bg-purple-700 hover:bg-purple-800 shadow-md transition flex items-center gap-2 cursor-pointer border border-purple-800">
+                                <i class="fas fa-file-pdf text-sm" aria-hidden="true"></i> Descargar Política (PDF)
+                            </a>
+                            <button type="button" id="tts-btn-2" onclick="speakReview(2)" class="px-4 py-2.5 rounded-xl text-xs sm:text-[13px] font-bold text-purple-950 bg-purple-200 hover:bg-purple-300 border border-purple-300 shadow-xs transition flex items-center gap-2 cursor-pointer">
+                                <i class="fas fa-volume-high text-purple-800" aria-hidden="true"></i> <span>Escuchar Reseña</span>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Reseña Analítica en Columnas Editoriales -->
+                    <div class="space-y-3">
+                        <div class="flex items-center gap-2 text-xs font-black uppercase tracking-wider text-purple-900 border-b border-purple-100 pb-2">
+                            <i class="fas fa-newspaper text-purple-600"></i> Reseña Analítica de la Lectura
+                        </div>
+                        <div id="review-text-2" class="editorial-columns text-xs sm:text-sm text-slate-700 leading-relaxed font-medium space-y-3">
+                            <p>
+                                Este documento institucional establece las directrices estratégicas del Estado de Chile para garantizar una respuesta integral, oportuna e interdisciplinaria a las personas afectadas por delitos violentos. La política organiza la oferta pública mediante el Programa de Apoyo a Víctimas (PAV), articulando intervención psicológica, social y jurídica especializada orientada a mitigar las secuelas del hecho delictivo.
+                            </p>
+                            <p>
+                                El marco normativo destaca la prevención de la victimización secundaria en las distintas instancias del sistema de justicia penal (policías, fiscalías, tribunales y servicios de salud). Asimismo, fija lineamientos de atención sensible al trauma, no revictimización, accesibilidad territorial y gratuidad del patrocinio legal, constituyendo el marco de referencia obligatorio para la oferta programática y las redes de derivación que se analizarán a lo largo del módulo.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Claves Psicojurídicas -->
+                    <div class="p-4 bg-purple-50/60 rounded-2xl border border-purple-100 space-y-2 info-box">
+                        <strong class="text-xs uppercase tracking-wider text-purple-950 block font-bold flex items-center gap-1.5">
+                            <i class="fas fa-key text-purple-700"></i> Ejes Conceptuales para la Práctica Forense:
+                        </strong>
+                        <ul class="text-xs text-slate-700 space-y-1.5 list-disc pl-4 font-medium">
+                            <li><strong>Triada de intervención:</strong> Abordaje psicosocial articulado con asistencia letrada especializada para garantizar acceso a la justicia.</li>
+                            <li><strong>Prevención de la revictimización institucional:</strong> Exigencia ética de evitar duplicidades procesales e interrogatorios culpabilizantes.</li>
+                            <li><strong>Criterios de derivación y redes:</strong> Identificación precisa de canales de ingreso y derivación a centros especializados de atención.</li>
+                        </ul>
+                    </div>
+
+                    <div class="flex justify-between pt-2">
+                        <button type="button" onclick="switchTab(1)" class="px-4 py-2.5 rounded-xl text-xs sm:text-sm font-bold text-slate-700 bg-white hover:bg-purple-50 border border-purple-200 shadow-sm transition flex items-center gap-2 cursor-pointer">
+                            <i class="fas fa-arrow-left"></i> Anterior
+                        </button>
+                        <button type="button" onclick="switchTab(3)" class="px-5 py-2.5 rounded-xl text-xs sm:text-sm font-bold text-white bg-purple-700 hover:bg-purple-800 shadow-md transition flex items-center gap-2 cursor-pointer">
+                            Siguiente: UNICEF (2021) <i class="fas fa-arrow-right"></i>
+                        </button>
+                    </div>
+                </section>
+
+                <!-- PANEL 3: UNICEF (2021) -->
+                <section id="tab-panel-3" role="tabpanel" aria-labelledby="tab-btn-3" class="glass-card rounded-3xl p-6 sm:p-8 shadow-sm space-y-6 hidden">
+                    
+                    <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 pb-4 border-b border-purple-100">
+                        <div class="space-y-1">
+                            <span class="bg-purple-100 text-purple-900 px-3 py-1 rounded-full text-[11px] font-extrabold uppercase tracking-wider block w-fit">
+                                Informe Internacional • Infancia y Adolescencia
+                            </span>
+                            <h2 class="text-xl sm:text-2xl font-extrabold text-slate-900 leading-tight">
+                                Violencia contra la niñez y adolescencia en Chile: estudio de conocimientos, actitudes y prácticas
+                            </h2>
+                            <p class="text-xs text-purple-900 font-semibold">
+                                UNICEF (2021). Resumen Ejecutivo. Santiago de Chile.
+                            </p>
+                        </div>
+                        
+                        <!-- Acciones: Descarga Oficial y Escuchar -->
+                        <div class="flex flex-wrap items-center gap-2.5 shrink-0 w-full sm:w-auto">
+                            <a href="https://www.unicef.org/chile/media/6266/file/CAP" target="_blank" rel="noopener noreferrer" class="px-4 py-2.5 rounded-xl text-xs sm:text-[13px] font-extrabold text-white bg-purple-700 hover:bg-purple-800 shadow-md transition flex items-center gap-2 cursor-pointer border border-purple-800">
+                                <i class="fas fa-file-pdf text-sm" aria-hidden="true"></i> Descargar Resumen (UNICEF)
+                            </a>
+                            <button type="button" id="tts-btn-3" onclick="speakReview(3)" class="px-4 py-2.5 rounded-xl text-xs sm:text-[13px] font-bold text-purple-950 bg-purple-200 hover:bg-purple-300 border border-purple-300 shadow-xs transition flex items-center gap-2 cursor-pointer">
+                                <i class="fas fa-volume-high text-purple-800" aria-hidden="true"></i> <span>Escuchar Reseña</span>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Reseña Analítica en Columnas Editoriales -->
+                    <div class="space-y-3">
+                        <div class="flex items-center gap-2 text-xs font-black uppercase tracking-wider text-purple-900 border-b border-purple-100 pb-2">
+                            <i class="fas fa-newspaper text-purple-600"></i> Reseña Analítica de la Lectura
+                        </div>
+                        <div id="review-text-3" class="editorial-columns text-xs sm:text-sm text-slate-700 leading-relaxed font-medium space-y-3">
+                            <p>
+                                El estudio de UNICEF (2021) presenta un diagnóstico empírico sobre los conocimientos, actitudes y prácticas asociadas a la violencia contra niños, niñas y adolescentes (NNA) en Chile. La investigación revela la persistencia de pautas de crianza violentas y la naturalización del castigo corporal como mecanismo disciplinario, evidenciando brechas significativas entre el rechazo discursivo de la violencia y su ejercicio en la esfera intrafamiliar.
+                            </p>
+                            <p>
+                                Para la victimología del desarrollo y la psicología forense, el informe aporta datos cruciales sobre las barreras para la develación y denuncia del maltrato infantil. Se evidencian factores de desprotección institucional, temor a represalias y desconfianza en los dispositivos de acogida. El texto fundamenta la necesidad urgente de fortalecer las medidas de resguardo procesal (como la Ley 21.057) y de erradicar mitos que culpabilizan a los menores de edad.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Claves Psicojurídicas -->
+                    <div class="p-4 bg-purple-50/60 rounded-2xl border border-purple-100 space-y-2 info-box">
+                        <strong class="text-xs uppercase tracking-wider text-purple-950 block font-bold flex items-center gap-1.5">
+                            <i class="fas fa-key text-purple-700"></i> Ejes Conceptuales para la Práctica Forense:
+                        </strong>
+                        <ul class="text-xs text-slate-700 space-y-1.5 list-disc pl-4 font-medium">
+                            <li><strong>Victimología del desarrollo:</strong> Reconocimiento del impacto acumulativo de la violencia crónica en el desarrollo socioemocional y cognitivo.</li>
+                            <li><strong>Naturalización cultural del maltrato:</strong> Comprensión de las dinámicas relacionales que invisibilizan el daño en contextos cotidianos.</li>
+                            <li><strong>Interés superior del niño:</strong> Obligación de privilegiar la protección de la integridad de NNA por sobre cualquier interés del sistema procesal.</li>
+                        </ul>
+                    </div>
+
+                    <div class="flex justify-between pt-2">
+                        <button type="button" onclick="switchTab(2)" class="px-4 py-2.5 rounded-xl text-xs sm:text-sm font-bold text-slate-700 bg-white hover:bg-purple-50 border border-purple-200 shadow-sm transition flex items-center gap-2 cursor-pointer">
+                            <i class="fas fa-arrow-left"></i> Anterior
+                        </button>
+                        <button type="button" onclick="switchTab(4)" class="px-5 py-2.5 rounded-xl text-xs sm:text-sm font-bold text-white bg-purple-700 hover:bg-purple-800 shadow-md transition flex items-center gap-2 cursor-pointer">
+                            Siguiente: Brassard et al. (2020) <i class="fas fa-arrow-right"></i>
+                        </button>
+                    </div>
+                </section>
+
+                <!-- PANEL 4: Brassard et al. (2020) -->
+                <section id="tab-panel-4" role="tabpanel" aria-labelledby="tab-btn-4" class="glass-card rounded-3xl p-6 sm:p-8 shadow-sm space-y-6 hidden">
+                    
+                    <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 pb-4 border-b border-purple-100">
+                        <div class="space-y-1">
+                            <span class="bg-rose-100 text-rose-900 px-3 py-1 rounded-full text-[11px] font-extrabold uppercase tracking-wider block w-fit">
+                                Investigación Longitudinal • Polivictimización
+                            </span>
+                            <h2 class="text-xl sm:text-2xl font-extrabold text-slate-900 leading-tight">
+                                Child Maltreatment and Polyvictimization as Predictors of Intimate Partner Violence in Women
+                            </h2>
+                            <p class="text-xs text-purple-900 font-semibold">
+                                Brassard, A., Tourigny, M., Dugal, C., Lussier, Y., Sabourin, S., & Godbout, N. (2020). <em>Violence Against Women</em>, 26(11), 1305–1323.
+                            </p>
+                        </div>
+                        
+                        <!-- Acciones: Descarga Oficial y Escuchar -->
+                        <div class="flex flex-wrap items-center gap-2.5 shrink-0 w-full sm:w-auto">
+                            <a href="https://doi.org/10.1177/1077801219857824" target="_blank" rel="noopener noreferrer" class="px-4 py-2.5 rounded-xl text-xs sm:text-[13px] font-extrabold text-white bg-purple-700 hover:bg-purple-800 shadow-md transition flex items-center gap-2 cursor-pointer border border-purple-800">
+                                <i class="fas fa-arrow-up-right-from-square text-xs" aria-hidden="true"></i> Abrir / Descargar (DOI)
+                            </a>
+                            <button type="button" id="tts-btn-4" onclick="speakReview(4)" class="px-4 py-2.5 rounded-xl text-xs sm:text-[13px] font-bold text-purple-950 bg-purple-200 hover:bg-purple-300 border border-purple-300 shadow-xs transition flex items-center gap-2 cursor-pointer">
+                                <i class="fas fa-volume-high text-purple-800" aria-hidden="true"></i> <span>Escuchar Reseña</span>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Reseña Analítica en Columnas Editoriales -->
+                    <div class="space-y-3">
+                        <div class="flex items-center gap-2 text-xs font-black uppercase tracking-wider text-purple-900 border-b border-purple-100 pb-2">
+                            <i class="fas fa-newspaper text-purple-600"></i> Reseña Analítica de la Lectura
+                        </div>
+                        <div id="review-text-4" class="editorial-columns text-xs sm:text-sm text-slate-700 leading-relaxed font-medium space-y-3">
+                            <p>
+                                El estudio de Brassard et al. (2020) aborda el fenómeno de la polivictimización infantil como factor predictor de la victimización por violencia de pareja en la vida adulta en mujeres. Los autores analizan cómo la exposición múltiple y simultánea a diversas tipologías de violencia en la niñez (abuso sexual, negligencia, maltrato físico y violencia comunitaria) altera los esquemas de apego y la regulación emocional, incrementando la vulnerabilidad relacional en etapas posteriores.
+                            </p>
+                            <p>
+                                El artículo aporta evidencia empírica contundente contra el análisis fragmentado de los delitos aislados, fundamentando la necesidad de adoptar un enfoque de polivictimización en los peritajes forenses. En la evaluación psicojurídica con perspectiva de género, esta investigación permite contextualizar por qué ciertas víctimas permanecen atrapadas en ciclos crónicos de violencia sin caer en lecturas culpabilizantes de co-responsabilidad individual.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Claves Psicojurídicas -->
+                    <div class="p-4 bg-purple-50/60 rounded-2xl border border-purple-100 space-y-2 info-box">
+                        <strong class="text-xs uppercase tracking-wider text-purple-950 block font-bold flex items-center gap-1.5">
+                            <i class="fas fa-key text-purple-700"></i> Ejes Conceptuales para la Práctica Forense:
+                        </strong>
+                        <ul class="text-xs text-slate-700 space-y-1.5 list-disc pl-4 font-medium">
+                            <li><strong>Polivictimización vs. hecho aislado:</strong> La carga traumática es exponencial cuando convergen múltiples formas de agresión en etapas tempranas.</li>
+                            <li><strong>Perspectiva de género no culpabilizante:</strong> Desmonta estereotipos judiciales sobre la «tolerancia» o complacencia en la violencia intrafamiliar.</li>
+                            <li><strong>Ruptura de ciclos intergeneracionales:</strong> Fundamenta estrategias periciales y reparatorias que aborden el trauma complejo del desarrollo.</li>
+                        </ul>
+                    </div>
+
+                    <div class="flex justify-start pt-2">
+                        <button type="button" onclick="switchTab(3)" class="px-4 py-2.5 rounded-xl text-xs sm:text-sm font-bold text-slate-700 bg-white hover:bg-purple-50 border border-purple-200 shadow-sm transition flex items-center gap-2 cursor-pointer">
+                            <i class="fas fa-arrow-left"></i> Volver a UNICEF (2021)
+                        </button>
+                    </div>
+                </section>
+
+            </main>
+        </div>
+
+        <!-- Footer Institucional UVM -->
+        <footer class="border-t border-purple-100 pt-8 pb-4 flex flex-col md:flex-row justify-between items-center gap-6 text-slate-500 w-full">
+            <div class="flex items-center gap-4">
+                <div class="flex items-center gap-3">
+                    <img src="https://tecnologiaeducativa.uvm.cl/uvmonline/uvm.jpg" alt="Logo UVM" class="h-8 grayscale hover:grayscale-0 transition-all opacity-80" onerror="this.src='https://placehold.co/100x40/1f1738/ffffff?text=UVM'">
+                    <div class="h-6 w-[1px] bg-purple-200 hidden md:block"></div>
+                    <div class="text-[9px] font-bold uppercase tracking-tight leading-tight">
+                        Dirección Tecnología Educativa<br>Diseño Instruccional UVM
+                    </div>
+                </div>
+            </div>
+
+            <div class="flex flex-col md:flex-row items-center gap-4">
+                <span class="text-[10px] font-black text-purple-950 uppercase tracking-widest text-center">
+                    Magíster en Intervenciones Psicojurídicas • Victimología (MGIP 7011)
+                </span>
+                <span class="text-[10px] font-bold text-slate-400">2026</span>
+            </div>
+        </footer>
+
+    </div>
+
+    <script>
+        // Control de navegación por pestañas (Lecturas 1 a 4)
+        function switchTab(tabNum) {
+            stopSpeech();
+            for (var i = 1; i <= 4; i++) {
+                var btn = document.getElementById('tab-btn-' + i);
+                var panel = document.getElementById('tab-panel-' + i);
+
+                if (!btn || !panel) continue;
+
+                if (i === tabNum) {
+                    btn.setAttribute('aria-selected', 'true');
+                    btn.className = "tab-btn text-left p-3 rounded-2xl font-extrabold text-xs bg-purple-700 text-white shadow-md transition flex items-start gap-2.5 cursor-pointer";
+                    panel.classList.remove('hidden');
+                } else {
+                    btn.setAttribute('aria-selected', 'false');
+                    btn.className = "tab-btn text-left p-3 rounded-2xl font-bold text-xs bg-white text-slate-700 hover:bg-purple-50 transition flex items-start gap-2.5 cursor-pointer border border-purple-100";
+                    panel.classList.add('hidden');
+                }
+            }
+            announceSR("Lectura " + tabNum + " seleccionada.");
+        }
+
+        // Anunciador accesible para lectores de pantalla
+        function announceSR(message) {
+            var announcer = document.getElementById('sr-announcer');
+            if (announcer) announcer.innerText = message;
+        }
+
+        // Síntesis de voz accesible DUA (Lectura de la reseña analítica)
+        var selectedVoice = null;
+        var isSpeaking = false;
+        var currentSpeakingTab = null;
+
+        function loadVoices() {
+            if (!('speechSynthesis' in window)) return;
+            var voices = window.speechSynthesis.getVoices();
+            selectedVoice = voices.find(function(v) { return v.lang === 'es-CL' || v.lang === 'es_CL'; }) ||
+                            voices.find(function(v) { return v.lang.startsWith('es-MX') || v.lang.startsWith('es'); });
+        }
+
+        if ('speechSynthesis' in window) {
+            window.speechSynthesis.onvoiceschanged = loadVoices;
+            loadVoices();
+        }
+
+        function speakReview(tabNum) {
+            if (!('speechSynthesis' in window)) return;
+
+            var btn = document.getElementById('tts-btn-' + tabNum);
+
+            // Si ya está reproduciendo la misma lectura, detener
+            if (isSpeaking && currentSpeakingTab === tabNum) {
+                stopSpeech();
+                return;
+            }
+
+            stopSpeech();
+
+            var textElem = document.getElementById('review-text-' + tabNum);
+            if (!textElem) return;
+
+            var text = textElem.innerText;
+            var utterance = new SpeechSynthesisUtterance(text);
+            utterance.lang = 'es-CL';
+            if (selectedVoice) utterance.voice = selectedVoice;
+            utterance.rate = 0.95;
+
+            utterance.onstart = function() {
+                isSpeaking = true;
+                currentSpeakingTab = tabNum;
+                if (btn) {
+                    btn.innerHTML = '<i class="fas fa-circle-stop text-purple-900" aria-hidden="true"></i> <span>Detener Lectura</span>';
+                    btn.classList.add('bg-purple-300');
+                }
+                announceSR("Reproduciendo reseña de la Lectura " + tabNum);
+            };
+
+            utterance.onend = function() {
+                resetTTSButtons();
+            };
+
+            utterance.onerror = function() {
+                resetTTSButtons();
+            };
+
+            window.speechSynthesis.speak(utterance);
+        }
+
+        function stopSpeech() {
+            if ('speechSynthesis' in window) {
+                window.speechSynthesis.cancel();
+            }
+            resetTTSButtons();
+        }
+
+        function resetTTSButtons() {
+            isSpeaking = false;
+            currentSpeakingTab = null;
+            for (var i = 1; i <= 4; i++) {
+                var btn = document.getElementById('tts-btn-' + i);
+                if (btn) {
+                    btn.innerHTML = '<i class="fas fa-volume-high text-purple-800" aria-hidden="true"></i> <span>Escuchar Reseña</span>';
+                    btn.classList.remove('bg-purple-300');
+                }
+            }
+        }
+
+        // Controles de accesibilidad global
+        function toggleHighContrast() {
+            document.body.classList.toggle('high-contrast');
+            document.body.classList.remove('dark-mode');
+            announceSR("Modo de alto contraste activado.");
+        }
+
+        function toggleDarkMode() {
+            document.body.classList.toggle('dark-mode');
+            document.body.classList.remove('high-contrast');
+            announceSR("Modo oscuro activado.");
+        }
+
+        var currentScale = 1.0;
+        function adjustFontSize(delta) {
+            currentScale += delta;
+            if (currentScale < 0.8) currentScale = 0.8;
+            if (currentScale > 1.4) currentScale = 1.4;
+            document.documentElement.style.setProperty('--font-scale', currentScale);
+            announceSR("Tamaño de texto ajustado.");
+        }
+
+        function toggleReduceMotion() {
+            document.body.classList.toggle('reduce-motion');
+            announceSR("Preferencia de animaciones ajustada.");
+        }
+    </script>
+</body>
+</html>
